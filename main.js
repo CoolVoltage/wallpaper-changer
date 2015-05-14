@@ -13,9 +13,9 @@ function translateDateToPictureName(){
 	return today;	
 	}
 function savePictureAndSetWallpaper(photoUrl){
-	var todayPic = translateDateToPictureName();
-	exec("wget -O /home/kvijay/Pictures/NatGeo/"+todayPic+" "+photoUrl,puts);
-	exec("gsettings set org.gnome.desktop.background picture-uri file:///home/kvijay/Pictures/NatGeo/"+todayPic, puts);
+	var todayPic = "pictureOfTheDay.jpg";
+	exec("wget -O /tmp/"+todayPic+" "+photoUrl,puts);
+	exec("gsettings set org.gnome.desktop.background picture-uri file:///tmp/"+todayPic, puts);
 }
 function parseHtml(err,resp,rawHtml){
 	if(err){
