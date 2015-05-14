@@ -1,8 +1,13 @@
+#!/usr/bin/env node
 var sys = require('sys')
 var exec = require('child_process').exec;
 var $ = require('cheerio');
 var request = require('request');
-function puts(error, stdout, stderr) { 
+var todayPic = "pictureOfTheDay.jpg";
+function setWallPaper(error, stdout, stderr) { 
+	if(error)
+		return;
+	exec("gsettings set org.gnome.desktop.background picture-uri file:///tmp/"+todayPic, function(){});
 	}
 function translateDateToPictureName(){
 	var today = new Date();
@@ -13,9 +18,7 @@ function translateDateToPictureName(){
 	return today;	
 	}
 function savePictureAndSetWallpaper(photoUrl){
-	var todayPic = "pictureOfTheDay.jpg";
-	exec("wget -O /tmp/"+todayPic+" "+photoUrl,puts);
-	exec("gsettings set org.gnome.desktop.background picture-uri file:///tmp/"+todayPic, puts);
+	exec("wget -O /tmp/"+todayPic+" "+photoUrl,setWallPaper);
 }
 function parseHtml(err,resp,rawHtml){
 	if(err){

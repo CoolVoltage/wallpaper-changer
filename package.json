@@ -3,9 +3,8 @@
   "version": "0.0.0",
   "description": "Wallpaper changer",
   "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "preferGlobal":"true",
+  "bin":{"wallpaper":"./main.js"},
   "repository": {
     "type": "git",
     "url": "https://github.com/CoolVoltage/wallpaper-changer"
