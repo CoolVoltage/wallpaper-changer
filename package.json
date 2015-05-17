@@ -3,8 +3,10 @@
   "version": "0.0.0",
   "description": "Wallpaper changer",
   "main": "main.js",
-  "preferGlobal":"true",
-  "bin":{"wallpaper":"./main.js"},
+  "preferGlobal": "true",
+  "bin": {
+    "wallpaper": "./main.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/CoolVoltage/wallpaper-changer"
@@ -16,6 +18,7 @@
   },
   "dependencies": {
     "cheerio": "~0.19.0",
-    "request": "~2.55.0"
+    "request": "~2.55.0",
+    "crontab": "~1.0.2"
   }
 }
