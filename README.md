@@ -14,5 +14,5 @@ $ npm link
 ```
 
 ### NOTE
-
+All the pictures are stored in ~/Pictures/NatGeo
 Tested and works in Gnome.
