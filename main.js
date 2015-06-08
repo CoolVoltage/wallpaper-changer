@@ -3,7 +3,7 @@ var sys = require('sys');
 var exec = require('child_process').exec;
 var $ = require('cheerio');
 var request = require('request');
-var todayPic = "";
+var todayPic = process.env["HOME"]+"/Pictures/NatGeo/";
 var shellArgs = process.argv;
 var fs = require('fs');
 var sha = require('sha1');
@@ -31,9 +31,9 @@ function errorHandler(error,stdout,stderr,func){
 }
 
 function setWallPaper(error,stdout,stderr) { 
-	//if(errorHandler(error,stdout,stderr,'setWallPaper'))
-	//	return;
-	exec("sh "+__dirname+"/setPaperScript.sh "+__dirname+"/NatGeo/"+todayPic,errorHandler);
+	if(errorHandler(error,stdout,stderr,'setWallPaper'))
+		return;
+	exec("sh "+__dirname+"/setPaperScript.sh "+todayPic,errorHandler);
 	}
 
 function parseHtml(err,resp,rawHtml){
@@ -43,9 +43,9 @@ function parseHtml(err,resp,rawHtml){
 
 	html(".primary_photo img").map(function(i,link){
 		var src = $(link).attr('src');
-		todayPic = sha(src)+'.jpg';
-		if(!fs.existsSync(__dirname+"/NatGeo/"+todayPic))
-			exec("wget -O "+__dirname+"/NatGeo/"+todayPic+" "+"http:"+src,setWallPaper);
+		todayPic = todayPic+sha(src)+'.jpg';
+		if(!fs.existsSync(todayPic))
+			exec("wget -O "+todayPic+" "+"http:"+src,setWallPaper);
 	});
 
 }

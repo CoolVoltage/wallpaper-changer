@@ -1,6 +1,6 @@
 {
   "name": "wallpaper-changer",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Wallpaper changer",
   "main": "main.js",
   "preferGlobal": "true",
@@ -8,7 +8,7 @@
     "wallpaper": "./main.js"
   },
   "scripts":{
-	"postinstall":"su -c 'node /lib/node_modules/wallpaper-changer/install.js' - root"  
+	"postinstall":"su -c 'node /lib/node_modules/wallpaper-changer/install.js' - $USERNAME"  
 	},
   "repository": {
     "type": "git",
