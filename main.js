@@ -31,8 +31,8 @@ function errorHandler(error,stdout,stderr,func){
 }
 
 function setWallPaper(error,stdout,stderr) { 
-	if(errorHandler(error,stdout,stderr,'setWallPaper'))
-		return;
+//	if(errorHandler(error,stdout,stderr,'setWallPaper'))
+//		return;
 	exec("sh "+__dirname+"/setPaperScript.sh "+todayPic,errorHandler);
 	}
 
